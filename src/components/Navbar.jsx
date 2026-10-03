@@ -62,7 +62,7 @@ function Navbar() {
         </nav>
 
         {/* Resume */}
-        <a href="/resume.pdf" className="resume-btn">
+        <a href="/" className="resume-btn">
           Resume
           <span>↗</span>
         </a>

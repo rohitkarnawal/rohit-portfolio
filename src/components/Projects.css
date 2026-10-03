@@ -10,9 +10,9 @@
   margin: 0 auto;
 }
 
-/* =========================
+/* =========================================================
    HEADING
-========================= */
+========================================================= */
 
 .projects-heading {
   display: grid;
@@ -52,9 +52,9 @@
   line-height: 1.8;
 }
 
-/* =========================
+/* =========================================================
    PROJECT LIST
-========================= */
+========================================================= */
 
 .projects-list {
   display: flex;
@@ -63,9 +63,9 @@
   padding-top: 100px;
 }
 
-/* =========================
+/* =========================================================
    PROJECT CARD
-========================= */
+========================================================= */
 
 .project-card {
   display: grid;
@@ -73,6 +73,8 @@
   gap: 70px;
   align-items: center;
 }
+
+/* Alternate project layout */
 
 .project-card:nth-child(even) {
   grid-template-columns: 0.65fr 1.35fr;
@@ -86,19 +88,14 @@
   order: 1;
 }
 
-/* =========================
+/* =========================================================
    PROJECT MEDIA
-========================= */
+========================================================= */
 
 .project-image-wrapper {
   position: relative;
   overflow: hidden;
-
-  /*
-    16:10 gives a wide cinematic project preview
-  */
   aspect-ratio: 16 / 10;
-
   background: #111;
   border: 1px solid #222;
 }
@@ -116,11 +113,7 @@
   background: #111;
 }
 
-/*
-   IMPORTANT:
-   contain = complete image/video visible
-   No cropping.
-*/
+/* Image + Video */
 
 .project-image img,
 .project-image video {
@@ -130,32 +123,22 @@
   width: 100%;
   height: 100%;
 
-  /*
-    This prevents cropping.
-  */
   object-fit: contain;
   object-position: center;
 
   display: block;
-
   background: #111;
 }
 
-/* =========================
+/* =========================================================
    IMAGE
-========================= */
+========================================================= */
 
 .project-image img {
   z-index: 1;
 
-  /*
-    Original colors.
-    No grayscale.
-  */
-  filter: none;
-
   opacity: 1;
-
+  filter: none;
   transform: none;
 
   transition:
@@ -163,17 +146,15 @@
     transform 0.5s ease;
 }
 
-/* =========================
+/* =========================================================
    VIDEO
-========================= */
+========================================================= */
 
 .project-video {
   z-index: 2;
 
   opacity: 0;
-
   pointer-events: none;
-
   transform: none;
 
   transition:
@@ -181,31 +162,24 @@
     transform 0.5s ease;
 }
 
-/*
-   Hover → video appears
-*/
+/* Desktop hover preview */
 
 .project-image-wrapper:hover .project-video {
   opacity: 1;
   transform: scale(1);
 }
 
-/*
-   Hide image when video starts
-*/
-
 .project-image-wrapper:hover .project-image img {
   opacity: 0;
 }
 
-/* =========================
+/* =========================================================
    IMAGE OVERLAY
-========================= */
+========================================================= */
 
 .project-overlay {
   position: absolute;
   inset: 0;
-
   z-index: 5;
 
   display: flex;
@@ -221,7 +195,6 @@
   );
 
   opacity: 0;
-
   pointer-events: none;
 
   transition: opacity 0.4s ease;
@@ -256,9 +229,9 @@
   transform: translate(5px, -5px);
 }
 
-/* =========================
+/* =========================================================
    PROJECT CONTENT
-========================= */
+========================================================= */
 
 .project-content {
   max-width: 480px;
@@ -290,7 +263,6 @@
   font-family: "Space Grotesk", sans-serif;
 
   font-size: clamp(32px, 4vw, 52px);
-
   font-weight: 500;
 
   letter-spacing: -0.045em;
@@ -302,18 +274,16 @@
   color: #777;
 
   font-size: 14px;
-
   line-height: 1.8;
 }
 
-/* =========================
+/* =========================================================
    TECHNOLOGIES
-========================= */
+========================================================= */
 
 .project-tech {
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
 
   margin-bottom: 35px;
@@ -323,15 +293,12 @@
   padding: 8px 12px;
 
   border: 1px solid #292929;
-
   border-radius: 100px;
 
   color: #888;
 
   font-size: 9px;
-
   letter-spacing: 0.08em;
-
   text-transform: uppercase;
 
   transition:
@@ -342,20 +309,17 @@
 
 .project-tech span:hover {
   border-color: #666;
-
   color: #fff;
-
   background: #111;
 }
 
-/* =========================
-   LINKS
-========================= */
+/* =========================================================
+   PROJECT LINKS
+========================================================= */
 
 .project-links {
   display: flex;
   align-items: center;
-
   gap: 30px;
 }
 
@@ -363,13 +327,10 @@
   position: relative;
 
   color: #fff;
-
   text-decoration: none;
 
   font-size: 11px;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
 }
 
@@ -377,7 +338,6 @@
   content: "";
 
   position: absolute;
-
   left: 0;
   bottom: -7px;
 
@@ -397,20 +357,17 @@
   color: #444;
 
   font-size: 10px;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
 }
 
-/* =========================
+/* =========================================================
    BOTTOM
-========================= */
+========================================================= */
 
 .projects-bottom {
   display: flex;
   align-items: center;
-
   gap: 25px;
 
   margin-top: 120px;
@@ -418,21 +375,18 @@
   color: #444;
 
   font-size: 9px;
-
   letter-spacing: 0.18em;
 }
 
 .projects-line {
   flex: 1;
-
   height: 1px;
-
   background: #222;
 }
 
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media (max-width: 900px) {
   .projects-section {
@@ -441,7 +395,6 @@
 
   .projects-heading {
     grid-template-columns: 1fr;
-
     gap: 40px;
   }
 
@@ -451,14 +404,18 @@
 
   .projects-list {
     gap: 90px;
-
     padding-top: 70px;
   }
 
+  /*
+    Tablet:
+    Image first, content second.
+  */
+
   .project-card,
   .project-card:nth-child(even) {
+    display: grid;
     grid-template-columns: 1fr;
-
     gap: 40px;
   }
 
@@ -472,9 +429,9 @@
   }
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 600px) {
   .projects-section {
@@ -489,53 +446,198 @@
     font-size: 55px;
   }
 
+  .projects-heading > p {
+    font-size: 13px;
+  }
+
   .projects-list {
     gap: 75px;
-
     padding-top: 60px;
   }
 
-  .project-card {
-    gap: 30px;
+  /*
+    IMPORTANT MOBILE PROJECT ORDER
+
+    01 / CATEGORY
+    PROJECT TITLE
+    VIDEO
+    DESCRIPTION
+    TECHNOLOGIES
+    LINKS
+  */
+
+  .project-card,
+  .project-card:nth-child(even) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
   }
 
   /*
-     Slightly taller on mobile so
-     project previews don't feel cramped.
+    Make content children behave as direct
+    flex children of project-card.
   */
 
-  .project-image-wrapper {
-    aspect-ratio: 4 / 3;
+  .project-content {
+    display: contents;
+    max-width: none;
   }
+
+  /* 01 + CATEGORY */
+
+  .project-meta {
+    order: 1;
+
+    width: 100%;
+
+    padding-bottom: 16px;
+    margin-bottom: 22px;
+
+    font-size: 9px;
+  }
+
+  /* KICKLAB / WANDERLUST / etc. */
+
+  .project-content h3 {
+    order: 2;
+
+    margin-bottom: 25px;
+
+    font-size: 38px;
+    line-height: 1;
+  }
+
+  /* VIDEO */
+
+  .project-image-wrapper {
+    order: 3;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    margin-bottom: 28px;
+  }
+
+  /*
+    Keep complete project preview visible.
+  */
+
+  .project-image img,
+  .project-image video {
+    object-fit: contain;
+  }
+
+  /*
+    Mobile doesn't need hover overlay.
+    The video is still controlled by the React
+    mouse events when available.
+  */
 
   .project-overlay {
     padding: 18px;
   }
 
+  .project-overlay span:first-child {
+    font-size: 8px;
+  }
+
   .project-overlay span:last-child {
     width: 38px;
     height: 38px;
+    font-size: 15px;
   }
 
-  .project-content h3 {
-    font-size: 38px;
-  }
+  /* DESCRIPTION */
 
   .project-content > p {
+    order: 4;
+
+    margin-bottom: 25px;
+
     font-size: 13px;
+    line-height: 1.8;
   }
 
-  .project-links {
-    gap: 22px;
+  /* TECHNOLOGIES */
+
+  .project-tech {
+    order: 5;
+
+    margin-bottom: 28px;
+
+    gap: 7px;
   }
+
+  .project-tech span {
+    padding: 7px 10px;
+    font-size: 8px;
+  }
+
+  /* LINKS */
+
+  .project-links {
+    order: 6;
+
+    gap: 22px;
+
+    padding-bottom: 5px;
+  }
+
+  .project-links a {
+    font-size: 10px;
+  }
+
+  .coming-soon {
+    font-size: 9px;
+  }
+
+  /* BOTTOM */
 
   .projects-bottom {
     margin-top: 80px;
-
     gap: 12px;
   }
 
   .projects-bottom span:last-child {
     display: none;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .projects-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .projects-heading h2 {
+    font-size: 48px;
+  }
+
+  .project-content h3 {
+    font-size: 34px;
+  }
+
+  .project-meta {
+    font-size: 8px;
+  }
+
+  .project-links {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 600px) {
+  .project-card:nth-child(even) .project-image-wrapper {
+    order: 3;
+  }
+
+  .project-card:nth-child(even) .project-content {
+    order: unset;
   }
 }
