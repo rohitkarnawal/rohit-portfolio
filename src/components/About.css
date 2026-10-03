@@ -1,0 +1,342 @@
+.about-section {
+  position: relative;
+
+  padding: 150px 30px;
+
+  background: #050505;
+
+  overflow: hidden;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: auto;
+}
+
+/* Heading */
+
+.section-heading {
+  margin-bottom: 90px;
+}
+
+.section-heading > span {
+  color: #555;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin-top: 20px;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(45px, 6vw, 78px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  font-weight: 600;
+
+  color: #eee;
+}
+
+.section-heading h2 em {
+  color: #666;
+
+  font-style: normal;
+}
+
+/* Grid */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+/* Main */
+
+.about-large {
+  max-width: 680px;
+
+  color: #ddd;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(23px, 2.5vw, 31px);
+
+  line-height: 1.45;
+
+  letter-spacing: -0.7px;
+}
+
+.about-large strong {
+  color: white;
+}
+
+.about-text {
+  max-width: 600px;
+
+  margin-top: 28px;
+
+  color: #777;
+
+  font-size: 15px;
+
+  line-height: 1.9;
+}
+
+/* Link */
+
+.about-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 38px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #444;
+
+  color: #ddd;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease,
+    border 0.3s ease;
+}
+
+.about-link span {
+  font-size: 18px;
+}
+
+.about-link:hover {
+  gap: 20px;
+
+  color: white;
+
+  border-color: white;
+}
+
+/* Side */
+
+.about-side {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* Main Card */
+
+.about-card {
+  position: relative;
+
+  min-height: 310px;
+
+  padding: 32px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.015)
+    );
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    border 0.4s ease;
+}
+
+.about-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.04);
+
+  filter: blur(40px);
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(255,255,255,0.22);
+}
+
+.card-label {
+  color: #555;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.about-card h3 {
+  margin-top: 25px;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 34px;
+
+  line-height: 1.15;
+
+  letter-spacing: -1px;
+
+  color: #ddd;
+}
+
+.card-line {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 28px 0 20px;
+
+  background: #292929;
+}
+
+.currently-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.currently-list span {
+  padding: 7px 10px;
+
+  border: 1px solid #292929;
+
+  border-radius: 5px;
+
+  color: #777;
+
+  font-size: 10px;
+
+  background: rgba(255,255,255,0.025);
+}
+
+/* Stats */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+.stat-card {
+  padding: 22px;
+
+  border: 1px solid rgba(255,255,255,0.07);
+
+  border-radius: 12px;
+
+  background: #0a0a0a;
+
+  transition:
+    transform 0.3s ease,
+    border 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #333;
+}
+
+.stat-card strong {
+  display: block;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 25px;
+
+  color: #eee;
+}
+
+.stat-card span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #555;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 110px 20px;
+  }
+
+  .section-heading {
+    margin-bottom: 60px;
+  }
+
+  .section-heading h2 {
+    letter-spacing: -2px;
+  }
+
+  .about-large {
+    font-size: 22px;
+  }
+
+  .about-card {
+    min-height: auto;
+
+    padding: 25px;
+  }
+
+  .about-card h3 {
+    font-size: 29px;
+  }
+}
