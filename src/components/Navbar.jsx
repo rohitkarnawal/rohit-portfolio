@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ onResumeClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -12,11 +12,18 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const handleResumeClick = () => {
+    closeMenu();
+    onResumeClick();
   };
 
   return (
@@ -24,12 +31,17 @@ function Navbar() {
       <div className="navbar-inner">
 
         {/* Logo */}
-        <a href="#home" className="navbar-logo" onClick={closeMenu}>
+        <a
+          href="#home"
+          className="navbar-logo"
+          onClick={closeMenu}
+        >
           ROHIT<span>.</span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Navigation */}
         <nav className={`nav-links ${isOpen ? "open" : ""}`}>
+
           <a href="#home" onClick={closeMenu}>
             <span>01</span>
             Home
@@ -59,19 +71,26 @@ function Navbar() {
             <span>06</span>
             Contact
           </a>
+
         </nav>
 
         {/* Resume */}
-        <a href="/" className="resume-btn">
+        <button
+          type="button"
+          className="resume-btn"
+          onClick={handleResumeClick}
+        >
           Resume
           <span>↗</span>
-        </a>
+        </button>
 
-        {/* Mobile Button */}
+        {/* Mobile Menu */}
         <button
+          type="button"
           className={`menu-button ${isOpen ? "active" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
         >
           <span></span>
           <span></span>
@@ -79,7 +98,7 @@ function Navbar() {
 
       </div>
 
-      {/* Animated bottom line */}
+      {/* Animated Bottom Line */}
       <div className="navbar-line"></div>
     </header>
   );

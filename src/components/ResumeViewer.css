@@ -1,0 +1,384 @@
+.resume-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255, 255, 255, 0.08),
+      transparent 38%
+    ),
+    #050505;
+
+  animation: resumeIn 0.45s ease forwards;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.resume-header {
+  position: relative;
+
+  height: 74px;
+  min-height: 74px;
+
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(5, 5, 5, 0.78);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(24px);
+}
+
+/* subtle animated line */
+
+.resume-header::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -1px;
+
+  width: 25%;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+
+  opacity: 0.35;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.resume-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.resume-brand span {
+  color: #fff;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.resume-brand small {
+  position: relative;
+
+  color: #666;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+}
+
+.resume-brand small::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 3px;
+  height: 3px;
+
+  margin-right: 8px;
+
+  vertical-align: middle;
+
+  background: #777;
+
+  border-radius: 50%;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.resume-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.resume-open,
+.resume-close {
+  position: relative;
+
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.resume-open {
+  padding: 0 15px;
+
+  gap: 7px;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+}
+
+.resume-close {
+  width: 40px;
+
+  border-radius: 7px;
+
+  font-size: 24px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.resume-open:hover,
+.resume-close:hover {
+  background: rgba(255, 255, 255, 0.09);
+
+  border-color: rgba(255, 255, 255, 0.35);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================
+   RESUME VIEWER
+========================================================= */
+
+.resume-viewer {
+  position: relative;
+
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 28px;
+
+  display: flex;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* ambient glow behind resume */
+
+.resume-viewer::before {
+  content: "";
+
+  position: absolute;
+
+  top: 5%;
+  left: 50%;
+
+  width: 600px;
+  height: 600px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.035),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* PDF */
+
+.resume-viewer iframe {
+  position: relative;
+
+  width: min(100%, 980px);
+  height: 100%;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 10px;
+
+  background: #fff;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.025);
+
+  animation: resumeSlideUp 0.55s ease 0.05s both;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes resumeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes resumeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .resume-header {
+    height: 64px;
+    min-height: 64px;
+
+    padding: 0 14px;
+  }
+
+  .resume-brand {
+    gap: 8px;
+  }
+
+  .resume-brand span {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .resume-brand small {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .resume-brand small::before {
+    margin-right: 6px;
+  }
+
+  .resume-actions {
+    gap: 7px;
+  }
+
+  .resume-open {
+    height: 36px;
+
+    padding: 0 10px;
+
+    font-size: 10px;
+  }
+
+  .resume-close {
+    width: 36px;
+    height: 36px;
+
+    font-size: 21px;
+  }
+
+  .resume-viewer {
+    padding: 10px;
+  }
+
+  .resume-viewer iframe {
+    width: 100%;
+
+    border-radius: 6px;
+
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .resume-header {
+    padding: 0 10px;
+  }
+
+  .resume-brand small {
+    display: none;
+  }
+
+  .resume-open {
+    padding: 0 8px;
+  }
+
+  .resume-viewer {
+    padding: 7px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-overlay,
+  .resume-viewer iframe {
+    animation: none;
+  }
+
+  .resume-open,
+  .resume-close {
+    transition: none;
+  }
+}

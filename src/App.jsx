@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,11 +9,16 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Pricing from "./components/Pricing";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ResumeViewer from "./components/ResumeViewer";
 
 function App() {
+  const [showResume, setShowResume] = useState(false);
+
   return (
     <>
-      <Navbar />
+      <Navbar
+        onResumeClick={() => setShowResume(true)}
+      />
 
       <main>
         <Hero />
@@ -25,6 +32,13 @@ function App() {
       <Footer />
 
       <WhatsAppButton />
+
+      {/* Resume Viewer */}
+      {showResume && (
+        <ResumeViewer
+          onClose={() => setShowResume(false)}
+        />
+      )}
     </>
   );
 }
